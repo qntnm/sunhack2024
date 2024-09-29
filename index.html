@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASU Study Group Matcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">My Classes</a>
+        <a href="#">Study Groups</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div class="main-content">
+                <h1>Find Study Partners</h1>
+                <form id="studyGroupForm">
+                    <input type="text" id="className" placeholder="Class Name (e.g., MAT265)" required>
+                    <button type="submit">Find Study Partners</button>
+                </form>
+                <div id="matchingStudents">
+                    <h2>Matching Study Partners</h2>
+                </div>
+            </div>
+            <div class="sidebar">
+                <h2>Recent Study Groups</h2>
+                <div class="study-group">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                    MAT265
+                </div>
+                <div class="study-group">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                    EEE202
+                </div>
+                <div class="study-group">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                    CSE365
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Example data set for what the backend would do
+        const mockStudents = [
+            { name: "Henry Danger", class: "MAT265", availability: "Evenings" },
+            { name: "Bob Smith", class: "MAT265", availability: "Weekends" },
+            { name: "John Doe", class: "MAT265", availability: "Mornings" },
+            { name: "Alice Johnson", class: "EEE202", availability: "Afternoons" },
+            { name: "Tom Wilson", class: "CSE365", availability: "Mornings" }
+        ];
+    
+        document.getElementById('studyGroupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const className = document.getElementById('className').value.trim().toUpperCase();
+    
+            const matches = mockStudents.filter(student => student.class.toUpperCase() === className);
+
+            const matchingStudentsDiv = document.getElementById('matchingStudents');
+            matchingStudentsDiv.innerHTML = '';
+    
+            if (matches.length > 0) {
+                matchingStudentsDiv.innerHTML = '<h2>Matching Study Partners for ' + className + '</h2>';
+                matches.forEach(match => {
+                    const matchDiv = document.createElement('div');
+                    matchDiv.className = 'student-match';
+                    matchDiv.textContent = `${match.name} is available: ${match.availability}`;
+                    matchingStudentsDiv.appendChild(matchDiv);
+                });
+            } else {
+                matchingStudentsDiv.innerHTML = '<h2>No matching students found for ' + className + '</h2>';
+            }
+        });
+    </script>
+    
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

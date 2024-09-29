@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF3D0;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+nav {
+    background-color: #8C1D40;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+nav a {
+    color: #FFC627;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+.content {
+    display: flex;
+    gap: 20px;
+}
+.main-content, .sidebar {
+    background-color: #FFC627;
+    padding: 20px;
+    border-radius: 8px;
+}
+.main-content {
+    flex: 2;
+}
+.sidebar {
+    flex: 1;
+}
+h1, h2 {
+    color: #8C1D40;
+    margin-top: 0;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #8C1D40;
+    border-radius: 4px;
+}
+button {
+    background-color: #8C1D40;
+    color: #FFC627;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #6B1330;
+}
+.study-group {
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+.study-group ion-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+#matchingStudents {
+    margin-top: 20px;
+}
+.student-match {
+    background-color: #FFF3D0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
